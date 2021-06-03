@@ -6,12 +6,15 @@
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "migrate": "npx knex migrate:latest --knexfile ./imports/modules/knex/knexfile.js"
+    "migrate": "npx knex migrate:latest --knexfile ./imports/modules/db/knexfile.js",
+    "seed": "npx knex seed:run --knexfile ./imports/modules/db/knexfile.js",
+    "down": "npx knex migrate:down --knexfile ./imports/modules/db/knexfile.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "knex": "^0.95.6",
     "meteor-node-stubs": "^1.0.1",
+    "objection": "^2.2.15",
     "pg": "^8.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
